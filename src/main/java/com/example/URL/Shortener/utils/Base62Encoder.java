@@ -11,7 +11,7 @@ public class Base62Encoder {
     public String encode(Long id) {
         log.info("BASE62: {} , id: {}", BASE62, id);
         long newId = randomStart + id;
-        log.info("Nre generated id: {}", newId);
+        log.info("New generated id: {}", newId);
         StringBuilder shortCode = new StringBuilder();
         while(newId > 0){
             int index = Math.toIntExact(newId % BASE62.length());

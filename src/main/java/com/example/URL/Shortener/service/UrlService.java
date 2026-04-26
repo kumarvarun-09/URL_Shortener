@@ -17,8 +17,11 @@ import java.time.LocalDateTime;
 public class UrlService implements IUrlService {
     private final UrlRepository urlRepository;
     private final Base62Encoder base62Encoder;
+    private final IRedisService redisService;
 
     private final String BASE_URL = "http://localhost:8080/url/";
+    private final String SHORT_URL_PREFIX = "short_url_";
+    private final Long timeToLiveForCache = 10L; // minutes
 
     @Override
     public String shortenUrl(String originalUrl) {
@@ -39,19 +42,26 @@ public class UrlService implements IUrlService {
         urlMapping.setShortCode(shortCode);
         urlRepository.save(urlMapping);
         log.info("Shortened URL: {} for original URL: {}", BASE_URL + shortCode, originalUrl);
+        redisService.set(SHORT_URL_PREFIX + shortCode, urlMapping, timeToLiveForCache);
         return BASE_URL + shortCode;
     }
 
     @Override
     public String getOriginalUrl(String shortCode) {
-        UrlMapping urlMapping = urlRepository.findByShortCode(shortCode)
+        UrlMapping urlMapping = redisService.get(SHORT_URL_PREFIX + shortCode, UrlMapping.class);
+        if (urlMapping != null) {
+            log.info("Data found in cache, shortCode: {} , Original URL: {}", shortCode, urlMapping.getOriginalUrl());
+            return urlMapping.getOriginalUrl();
+        }
+        urlMapping = urlRepository.findByShortCode(shortCode)
                 .orElseThrow(() -> new UrlNotFoundException("URL not found for short code " + shortCode));
 
         if (urlMapping.getExpiryAt() != null
                 && urlMapping.getExpiryAt().isBefore(LocalDateTime.now())) {
             throw new UrlExpiredException(shortCode);
         }
-        log.info("For shortcode: {} , Original URL: {}", shortCode, urlMapping.getOriginalUrl());
+        redisService.set(SHORT_URL_PREFIX + shortCode, urlMapping, timeToLiveForCache);
+        log.info("Data not in cache, fetching from db, For shortcode: {} , Original URL: {}", shortCode, urlMapping.getOriginalUrl());
         return urlMapping.getOriginalUrl();
     }
 }
