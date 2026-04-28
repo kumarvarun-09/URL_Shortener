@@ -20,9 +20,11 @@ public class RedisService implements IRedisService {
             Object value = redisTemplate.opsForValue().get(key);
             ObjectMapper objectMapper = new ObjectMapper();
             log.info("key: {}, value: {}", key, value);
-            return objectMapper.readValue(value.toString(), entityClass);
+            return (value != null)
+                    ? objectMapper.readValue(value.toString(), entityClass)
+                    : null;
         } catch (Exception e) {
-            log.info("Exception: {}", e.getMessage());
+            log.error("Exception: {}", e.getMessage());
             return null;
         }
     }
@@ -33,7 +35,7 @@ public class RedisService implements IRedisService {
             String json = new ObjectMapper().writeValueAsString(value);
             redisTemplate.opsForValue().set(key, json, ttl, TimeUnit.MINUTES);
         } catch (Exception e) {
-            log.info("Exception: {}", e.getMessage());
+            log.error("Exception: {}", e.getMessage());
         }
     }
 

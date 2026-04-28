@@ -4,7 +4,9 @@ import com.example.URL.Shortener.exception.UrlExpiredException;
 import com.example.URL.Shortener.exception.UrlNotFoundException;
 import com.example.URL.Shortener.request.ShortenUrlRequest;
 import com.example.URL.Shortener.response.ApiResponse;
+import com.example.URL.Shortener.service.IRateLimiterService;
 import com.example.URL.Shortener.service.IUrlService;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -12,7 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
-import java.net.http.HttpClient;
 
 @Slf4j
 @RestController
@@ -20,10 +21,22 @@ import java.net.http.HttpClient;
 @RequiredArgsConstructor
 public class UrlController {
     private final IUrlService urlService;
+    private final IRateLimiterService rateLimiterService;
 
     @PostMapping("/shorten")
-    public ResponseEntity<?> shortenUrl(@RequestBody ShortenUrlRequest request) {
+    public ResponseEntity<?> shortenUrl(HttpServletRequest httpServletRequest, @RequestBody ShortenUrlRequest request) {
         try {
+            final String ip = httpServletRequest.getRemoteAddr();
+            log.info("Got request from IP: {} " +
+                            "\n user: {} " +
+                            "\n host: {} " +
+                            "\n port: {} ", ip, httpServletRequest.getRemoteUser(),
+                    httpServletRequest.getRemoteHost(),
+                    httpServletRequest.getRemotePort());
+            if (!rateLimiterService.isAllowed(ip)) {
+                return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS)
+                        .body("Too many requests");
+            }
             String originalUrl = request.getUrl().trim();
             String shortCode = urlService.shortenUrl(originalUrl);
             return ResponseEntity.ok().body(new ApiResponse("ShortUrlCreated", shortCode));
@@ -35,8 +48,19 @@ public class UrlController {
     }
 
     @GetMapping("/{shortCode}")
-    public ResponseEntity<?> getOriginalUrl(@PathVariable(name = "shortCode") String shortCode) {
+    public ResponseEntity<?> getOriginalUrl(HttpServletRequest httpServletRequest , @PathVariable(name = "shortCode") String shortCode) {
         try {
+            final String ip = httpServletRequest.getRemoteAddr();
+            log.info("Got request from IP: {} " +
+                            "\n user: {} " +
+                            "\n host: {} " +
+                            "\n port: {} ", ip, httpServletRequest.getRemoteUser(),
+                    httpServletRequest.getRemoteHost(),
+                    httpServletRequest.getRemotePort());
+            if (!rateLimiterService.isAllowed(ip)) {
+                return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS)
+                        .body("Too many requests");
+            }
             shortCode = shortCode.trim();
             String originalUrl = urlService.getOriginalUrl(shortCode);
 //            return ResponseEntity.ok()
