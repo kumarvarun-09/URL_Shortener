@@ -75,6 +75,7 @@ public class UrlService implements IUrlService {
 
         if (urlMapping.getExpiryAt() != null
                 && urlMapping.getExpiryAt().isBefore(LocalDateTime.now())) {
+            redisService.remove(SHORT_URL_PREFIX + shortCode);
             throw new UrlExpiredException(shortCode);
         }
         redisService.set(SHORT_URL_PREFIX + shortCode, urlMapping, TIME_TO_LIVE_FOR_CACHE);
