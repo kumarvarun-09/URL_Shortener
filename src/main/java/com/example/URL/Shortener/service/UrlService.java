@@ -47,13 +47,31 @@ public class UrlService implements IUrlService {
 
     @Override
     public String getOriginalUrl(String shortCode) {
-        UrlMapping urlMapping = redisService.get(SHORT_URL_PREFIX + shortCode, UrlMapping.class);
+        UrlMapping urlMapping = null;
+        try {
+            urlMapping = redisService.get(SHORT_URL_PREFIX + shortCode, UrlMapping.class);
+        } catch (Exception e) {
+            log.error("Redis failed, fallback to DB", e);
+        }
         if (urlMapping != null) {
+            if (NULL_VALUE.equals(urlMapping.getOriginalUrl())) {
+                log.warn("Cache hit, URL for shortcode {} is null", shortCode);
+                throw new UrlNotFoundException("Original URL for shortcode not found " + shortCode);
+            }
+
             log.info("Data found in cache, shortCode: {} , Original URL: {}", shortCode, urlMapping.getOriginalUrl());
             return urlMapping.getOriginalUrl();
         }
-        urlMapping = urlRepository.findByShortCode(shortCode)
-                .orElseThrow(() -> new UrlNotFoundException("URL not found for short code " + shortCode));
+        urlMapping = urlRepository.findByShortCode(shortCode).orElse(null);
+        if (urlMapping == null) {
+            UrlMapping nullTempForCache = UrlMapping.builder()
+                    .shortCode(shortCode)
+                    .originalUrl(NULL_VALUE)
+                    .createdAt(LocalDateTime.now())
+                    .build();
+            redisService.set(SHORT_URL_PREFIX + shortCode, nullTempForCache, TIME_TO_LIVE_FOR_CACHE);
+            throw new UrlNotFoundException("URL not found for short code " + shortCode);
+        }
 
         if (urlMapping.getExpiryAt() != null
                 && urlMapping.getExpiryAt().isBefore(LocalDateTime.now())) {

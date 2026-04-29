@@ -41,6 +41,7 @@ public class RedisService implements IRedisService {
 
     @Override
     public void remove(String key) {
-
+        redisTemplate.delete(key);
+        log.info("Removed data from cache for key: {}", key);
     }
 }
