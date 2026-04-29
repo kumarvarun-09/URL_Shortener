@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
+import static com.example.URL.Shortener.constants.Constants.*;
+
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -18,10 +21,6 @@ public class UrlService implements IUrlService {
     private final UrlRepository urlRepository;
     private final Base62Encoder base62Encoder;
     private final IRedisService redisService;
-
-    private final String BASE_URL = "http://localhost:8080/url/";
-    private final String SHORT_URL_PREFIX = "short_url_";
-    private final Long timeToLiveForCache = 10L; // minutes
 
     @Override
     public String shortenUrl(String originalUrl) {
@@ -42,7 +41,7 @@ public class UrlService implements IUrlService {
         urlMapping.setShortCode(shortCode);
         urlRepository.save(urlMapping);
         log.info("Shortened URL: {} for original URL: {}", BASE_URL + shortCode, originalUrl);
-        redisService.set(SHORT_URL_PREFIX + shortCode, urlMapping, timeToLiveForCache);
+        redisService.set(SHORT_URL_PREFIX + shortCode, urlMapping, TIME_TO_LIVE_FOR_CACHE);
         return BASE_URL + shortCode;
     }
 
@@ -60,7 +59,7 @@ public class UrlService implements IUrlService {
                 && urlMapping.getExpiryAt().isBefore(LocalDateTime.now())) {
             throw new UrlExpiredException(shortCode);
         }
-        redisService.set(SHORT_URL_PREFIX + shortCode, urlMapping, timeToLiveForCache);
+        redisService.set(SHORT_URL_PREFIX + shortCode, urlMapping, TIME_TO_LIVE_FOR_CACHE);
         log.info("Data not in cache, fetching from db, For shortcode: {} , Original URL: {}", shortCode, urlMapping.getOriginalUrl());
         return urlMapping.getOriginalUrl();
     }
