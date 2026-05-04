@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+
 import java.util.concurrent.TimeUnit;
 
 import static com.example.URL.Shortener.constants.Constants.*;
@@ -13,7 +14,6 @@ import static com.example.URL.Shortener.constants.Constants.*;
 @Slf4j
 public class RateLimiterService implements IRateLimiterService {
     private final RedisTemplate redisTemplate;
-
 
     @Override
     public boolean isAllowed(String key) {

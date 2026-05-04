@@ -21,6 +21,7 @@ public class UrlService implements IUrlService {
     private final UrlRepository urlRepository;
     private final Base62Encoder base62Encoder;
     private final IRedisService redisService;
+    private final IAnalyticsService analyticsService;
 
     @Override
     public String shortenUrl(String originalUrl) {
@@ -48,8 +49,9 @@ public class UrlService implements IUrlService {
     @Override
     public String getOriginalUrl(String shortCode) {
         UrlMapping urlMapping = null;
+        final String shortCodeKey = SHORT_URL_PREFIX + shortCode;
         try {
-            urlMapping = redisService.get(SHORT_URL_PREFIX + shortCode, UrlMapping.class);
+            urlMapping = redisService.get(shortCodeKey, UrlMapping.class);
         } catch (Exception e) {
             log.error("Redis failed, fallback to DB", e);
         }
@@ -58,7 +60,7 @@ public class UrlService implements IUrlService {
                 log.warn("Cache hit, URL for shortcode {} is null", shortCode);
                 throw new UrlNotFoundException("Original URL for shortcode not found " + shortCode);
             }
-
+            analyticsService.incrementClick(shortCode);
             log.info("Data found in cache, shortCode: {} , Original URL: {}", shortCode, urlMapping.getOriginalUrl());
             return urlMapping.getOriginalUrl();
         }
@@ -69,16 +71,17 @@ public class UrlService implements IUrlService {
                     .originalUrl(NULL_VALUE)
                     .createdAt(LocalDateTime.now())
                     .build();
-            redisService.set(SHORT_URL_PREFIX + shortCode, nullTempForCache, TIME_TO_LIVE_FOR_CACHE);
+            redisService.set(shortCodeKey, nullTempForCache, TIME_TO_LIVE_FOR_CACHE);
             throw new UrlNotFoundException("URL not found for short code " + shortCode);
         }
 
         if (urlMapping.getExpiryAt() != null
                 && urlMapping.getExpiryAt().isBefore(LocalDateTime.now())) {
-            redisService.remove(SHORT_URL_PREFIX + shortCode);
+            redisService.remove(shortCodeKey);
             throw new UrlExpiredException(shortCode);
         }
-        redisService.set(SHORT_URL_PREFIX + shortCode, urlMapping, TIME_TO_LIVE_FOR_CACHE);
+        redisService.set(shortCodeKey, urlMapping, TIME_TO_LIVE_FOR_CACHE);
+        analyticsService.incrementClick(shortCode);
         log.info("Data not in cache, fetching from db, For shortcode: {} , Original URL: {}", shortCode, urlMapping.getOriginalUrl());
         return urlMapping.getOriginalUrl();
     }
