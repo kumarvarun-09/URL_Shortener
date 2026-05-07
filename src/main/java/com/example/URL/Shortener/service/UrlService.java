@@ -31,6 +31,7 @@ public class UrlService implements IUrlService {
         UrlMapping urlMapping = UrlMapping.builder()
                 .originalUrl(originalUrl)
                 .createdAt(LocalDateTime.now())
+                .clickCount(0L)
                 .build();
 
         Long newId = 1L;
@@ -70,6 +71,7 @@ public class UrlService implements IUrlService {
                     .shortCode(shortCode)
                     .originalUrl(NULL_VALUE)
                     .createdAt(LocalDateTime.now())
+                    .clickCount(0L)
                     .build();
             redisService.set(shortCodeKey, nullTempForCache, TIME_TO_LIVE_FOR_CACHE);
             throw new UrlNotFoundException("URL not found for short code " + shortCode);

@@ -27,4 +27,6 @@ public class UrlMapping {
     private String shortCode;
     private LocalDateTime createdAt;
     private LocalDateTime expiryAt;
+    @Column(nullable = false)
+    private Long clickCount = 0L;
 }

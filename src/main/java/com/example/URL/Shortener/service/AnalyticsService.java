@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
+import static com.example.URL.Shortener.constants.Constants.CLICK_INDEX_KEY;
 import static com.example.URL.Shortener.constants.Constants.CLICK_PREFIX;
 
 @Service
@@ -18,6 +19,7 @@ public class AnalyticsService implements IAnalyticsService {
         final String redisKey = CLICK_PREFIX + shortCode;
         try {
             redisTemplate.opsForValue().increment(redisKey);
+            redisTemplate.opsForSet().add(CLICK_INDEX_KEY, shortCode);
             log.info("Incremented click count for shortCode {}", shortCode);
         } catch (Exception e) {
             log.error("Failed to increment click count for shortCode {} \n{}", shortCode, e.getMessage());
