@@ -59,7 +59,7 @@ public class UrlService implements IUrlService {
         if (urlMapping != null) {
             if (NULL_VALUE.equals(urlMapping.getOriginalUrl())) {
                 log.warn("Cache hit, URL for shortcode {} is null", shortCode);
-                throw new UrlNotFoundException("Original URL for shortcode not found " + shortCode);
+                throw new UrlNotFoundException("Original URL for shortcode not found ", shortCode);
             }
             analyticsService.incrementClick(shortCode);
             log.info("Data found in cache, shortCode: {} , Original URL: {}", shortCode, urlMapping.getOriginalUrl());
@@ -74,13 +74,13 @@ public class UrlService implements IUrlService {
                     .clickCount(0L)
                     .build();
             redisService.set(shortCodeKey, nullTempForCache, TIME_TO_LIVE_FOR_CACHE);
-            throw new UrlNotFoundException("URL not found for short code " + shortCode);
+            throw new UrlNotFoundException("URL not found for short code ", shortCode);
         }
 
         if (urlMapping.getExpiryAt() != null
                 && urlMapping.getExpiryAt().isBefore(LocalDateTime.now())) {
             redisService.remove(shortCodeKey);
-            throw new UrlExpiredException(shortCode);
+            throw new UrlExpiredException("URL expired for shortCode on " + urlMapping.getExpiryAt(), shortCode);
         }
         redisService.set(shortCodeKey, urlMapping, TIME_TO_LIVE_FOR_CACHE);
         analyticsService.incrementClick(shortCode);
