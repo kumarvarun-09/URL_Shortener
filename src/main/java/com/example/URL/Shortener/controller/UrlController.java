@@ -5,6 +5,7 @@ import com.example.URL.Shortener.response.ApiResponse;
 import com.example.URL.Shortener.service.IRateLimiterService;
 import com.example.URL.Shortener.service.IUrlService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -23,7 +24,7 @@ public class UrlController {
     private final IRateLimiterService rateLimiterService;
 
     @PostMapping("/shorten")
-    public ResponseEntity<?> shortenUrl(HttpServletRequest httpServletRequest, @RequestBody ShortenUrlRequest request) {
+    public ResponseEntity<?> shortenUrl(HttpServletRequest httpServletRequest, @Valid @RequestBody ShortenUrlRequest request) {
         final String ip = httpServletRequest.getRemoteAddr();
         log.info("""
                 Got request from IP: {}
