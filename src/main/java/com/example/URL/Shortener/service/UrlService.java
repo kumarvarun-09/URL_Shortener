@@ -1,5 +1,6 @@
 package com.example.URL.Shortener.service;
 
+import com.example.URL.Shortener.config.ApplicationProperties;
 import com.example.URL.Shortener.exception.UrlExpiredException;
 import com.example.URL.Shortener.exception.UrlNotFoundException;
 import com.example.URL.Shortener.model.UrlMapping;
@@ -11,9 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
-import static com.example.URL.Shortener.constants.Constants.*;
-
-
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -22,6 +20,7 @@ public class UrlService implements IUrlService {
     private final Base62Encoder base62Encoder;
     private final IRedisService redisService;
     private final IAnalyticsService analyticsService;
+    private final ApplicationProperties applicationProperties;
 
     @Override
     public String shortenUrl(String originalUrl) {
@@ -42,22 +41,24 @@ public class UrlService implements IUrlService {
         String shortCode = base62Encoder.encode(newId);
         urlMapping.setShortCode(shortCode);
         urlRepository.save(urlMapping);
-        log.info("Shortened URL: {} for original URL: {}", BASE_URL + shortCode, originalUrl);
-        redisService.set(SHORT_URL_PREFIX + shortCode, urlMapping, TIME_TO_LIVE_FOR_CACHE);
-        return BASE_URL + shortCode;
+        log.info("Shortened URL: {} for original URL: {}",
+                applicationProperties.getBaseUrl() + shortCode, originalUrl);
+        redisService.set(applicationProperties.getRedis().getShortUrlPrefix()
+                + shortCode, urlMapping, applicationProperties.getRedis().getUrlTtlMinutes());
+        return applicationProperties.getBaseUrl() + shortCode;
     }
 
     @Override
     public String getOriginalUrl(String shortCode) {
         UrlMapping urlMapping = null;
-        final String shortCodeKey = SHORT_URL_PREFIX + shortCode;
+        final String shortCodeKey = applicationProperties.getRedis().getShortUrlPrefix() + shortCode;
         try {
             urlMapping = redisService.get(shortCodeKey, UrlMapping.class);
         } catch (Exception e) {
             log.error("Redis failed, fallback to DB", e);
         }
         if (urlMapping != null) {
-            if (NULL_VALUE.equals(urlMapping.getOriginalUrl())) {
+            if (applicationProperties.getNullCacheValue().equals(urlMapping.getOriginalUrl())) {
                 log.warn("Cache hit, URL for shortcode {} is null", shortCode);
                 throw new UrlNotFoundException("Original URL for shortcode not found ", shortCode);
             }
@@ -69,11 +70,11 @@ public class UrlService implements IUrlService {
         if (urlMapping == null) {
             UrlMapping nullTempForCache = UrlMapping.builder()
                     .shortCode(shortCode)
-                    .originalUrl(NULL_VALUE)
+                    .originalUrl(applicationProperties.getNullCacheValue())
                     .createdAt(LocalDateTime.now())
                     .clickCount(0L)
                     .build();
-            redisService.set(shortCodeKey, nullTempForCache, TIME_TO_LIVE_FOR_CACHE);
+            redisService.set(shortCodeKey, nullTempForCache, applicationProperties.getRedis().getNullTtlMinutes());
             throw new UrlNotFoundException("URL not found for short code ", shortCode);
         }
 
@@ -82,7 +83,7 @@ public class UrlService implements IUrlService {
             redisService.remove(shortCodeKey);
             throw new UrlExpiredException("URL expired for shortCode on " + urlMapping.getExpiryAt(), shortCode);
         }
-        redisService.set(shortCodeKey, urlMapping, TIME_TO_LIVE_FOR_CACHE);
+        redisService.set(shortCodeKey, urlMapping, applicationProperties.getRedis().getUrlTtlMinutes());
         analyticsService.incrementClick(shortCode);
         log.info("Data not in cache, fetching from db, For shortcode: {} , Original URL: {}", shortCode, urlMapping.getOriginalUrl());
         return urlMapping.getOriginalUrl();

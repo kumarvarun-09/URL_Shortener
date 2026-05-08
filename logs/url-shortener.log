@@ -1,0 +1,320 @@
+2026-05-09 00:24:33.134 | PID:26352 | [main] | INFO  | c.e.U.S.UrlShortenerApplication.logStarting : Starting UrlShortenerApplication using Java 24.0.1 with PID 26352 (C:\workspace\URL-Shortener\target\classes started by kumar in C:\workspace\URL-Shortener)
+2026-05-09 00:24:33.148 | PID:26352 | [main] | INFO  | c.e.U.S.UrlShortenerApplication.logStartupProfileInfo : No active profile set, falling back to 1 default profile: "default"
+2026-05-09 00:24:35.185 | PID:26352 | [main] | INFO  | o.s.d.r.c.RepositoryConfigurationDelegate.multipleStoresDetected : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-05-09 00:24:35.189 | PID:26352 | [main] | INFO  | o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09 00:24:35.554 | PID:26352 | [main] | INFO  | o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn : Finished Spring Data repository scanning in 348 ms. Found 1 JPA repository interface.
+2026-05-09 00:24:35.646 | PID:26352 | [main] | INFO  | o.s.d.r.c.RepositoryConfigurationDelegate.multipleStoresDetected : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-05-09 00:24:35.652 | PID:26352 | [main] | INFO  | o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-05-09 00:24:35.701 | PID:26352 | [main] | INFO  | o.s.d.r.c.RepositoryConfigurationExtensionSupport.isStrictRepositoryCandidate : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.URL.Shortener.repository.UrlRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-05-09 00:24:35.703 | PID:26352 | [main] | INFO  | o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn : Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+2026-05-09 00:24:36.864 | PID:26352 | [main] | INFO  | o.s.boot.tomcat.TomcatWebServer.initialize : Tomcat initialized with port 8080 (http)
+2026-05-09 00:24:36.904 | PID:26352 | [main] | INFO  | o.a.catalina.core.StandardService.log : Starting service [Tomcat]
+2026-05-09 00:24:36.905 | PID:26352 | [main] | INFO  | o.a.catalina.core.StandardEngine.log : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-05-09 00:24:37.026 | PID:26352 | [main] | INFO  | o.s.b.w.c.s.WebApplicationContextInitializer.prepareWebApplicationContext : Root WebApplicationContext: initialization completed in 3701 ms
+2026-05-09 00:24:37.355 | PID:26352 | [main] | INFO  | org.hibernate.orm.jpa.logPersistenceUnitInformation : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09 00:24:37.473 | PID:26352 | [main] | INFO  | org.hibernate.orm.core.logVersion : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-05-09 00:24:38.446 | PID:26352 | [main] | INFO  | o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09 00:24:38.507 | PID:26352 | [main] | INFO  | com.zaxxer.hikari.HikariDataSource.getConnection : HikariPool-1 - Starting...
+2026-05-09 00:24:39.033 | PID:26352 | [main] | INFO  | com.zaxxer.hikari.pool.HikariPool.checkFailFast : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@780c0
+2026-05-09 00:24:39.036 | PID:26352 | [main] | INFO  | com.zaxxer.hikari.HikariDataSource.getConnection : HikariPool-1 - Start completed.
+2026-05-09 00:24:39.112 | PID:26352 | [main] | WARN  | org.hibernate.orm.deprecation.constructDialect : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09 00:24:39.167 | PID:26352 | [main] | INFO  | o.hibernate.orm.connections.pooling.logConnectionInfo : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/url_shortener]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.2
+	Default catalog/schema: url_shortener/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09 00:24:41.119 | PID:26352 | [main] | INFO  | org.hibernate.orm.core.initiateService : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09 00:24:41.410 | PID:26352 | [main] | INFO  | o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09 00:24:41.640 | PID:26352 | [main] | INFO  | o.s.d.j.r.q.QueryEnhancerFactories.<clinit> : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-09 00:24:42.791 | PID:26352 | [main] | WARN  | o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09 00:24:43.523 | PID:26352 | [main] | INFO  | o.s.boot.tomcat.TomcatWebServer.start : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09 00:24:43.542 | PID:26352 | [main] | INFO  | c.e.U.S.UrlShortenerApplication.logStarted : Started UrlShortenerApplication in 11.518 seconds (process running for 14.551)
+2026-05-09 00:24:43.543 | PID:26352 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Starting AnalyticsSyncJob...
+2026-05-09 00:24:44.545 | PID:26352 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : No records to process
+2026-05-09 00:24:44.546 | PID:26352 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : AnalyticsSyncJob completed successfully in 1003 ms
+2026-05-09 00:24:58.508 | PID:26352 | [http-nio-8080-exec-2] | INFO  | o.a.c.c.C.[Tomcat].[localhost].[/].log : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-09 00:24:58.508 | PID:26352 | [http-nio-8080-exec-2] | INFO  | o.s.web.servlet.DispatcherServlet.initServletBean : Initializing Servlet 'dispatcherServlet'
+2026-05-09 00:24:58.510 | PID:26352 | [http-nio-8080-exec-2] | INFO  | o.s.web.servlet.DispatcherServlet.initServletBean : Completed initialization in 1 ms
+2026-05-09 00:24:58.807 | PID:26352 | [http-nio-8080-exec-2] | WARN  | c.e.U.S.e.GlobalExceptionHandler.handleValidationException : Validation failed: URL cannot be empty
+2026-05-09 00:25:43.552 | PID:26352 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Starting AnalyticsSyncJob...
+2026-05-09 00:25:43.557 | PID:26352 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : No records to process
+2026-05-09 00:25:43.558 | PID:26352 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : AnalyticsSyncJob completed successfully in 6 ms
+2026-05-09 00:25:53.458 | PID:26352 | [http-nio-8080-exec-3] | INFO  | c.e.U.S.controller.UrlController.shortenUrl : Got request from IP: 0:0:0:0:0:0:0:1
+
+2026-05-09 00:25:54.456 | PID:26352 | [http-nio-8080-exec-3] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : BASE62: OPvkMrhDVSRpgJ6X15wGIFTEybs48NuU2Qmi9YHtz0coCAaLKedljqZW37xnf , id: 5
+2026-05-09 00:25:54.457 | PID:26352 | [http-nio-8080-exec-3] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : New generated id: 387978027
+2026-05-09 00:25:54.459 | PID:26352 | [http-nio-8080-exec-3] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Inside loop, index is 32 , char is 2
+2026-05-09 00:25:54.460 | PID:26352 | [http-nio-8080-exec-3] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Inside loop, index is 8 , char is V
+2026-05-09 00:25:54.461 | PID:26352 | [http-nio-8080-exec-3] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Inside loop, index is 18 , char is w
+2026-05-09 00:25:54.463 | PID:26352 | [http-nio-8080-exec-3] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Inside loop, index is 1 , char is P
+2026-05-09 00:25:54.464 | PID:26352 | [http-nio-8080-exec-3] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Inside loop, index is 28 , char is 8
+2026-05-09 00:25:54.465 | PID:26352 | [http-nio-8080-exec-3] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Short code generated: 2VwP8O
+2026-05-09 00:25:54.733 | PID:26352 | [http-nio-8080-exec-3] | INFO  | c.e.URL.Shortener.service.UrlService.shortenUrl : Shortened URL: http://localhost:8080O8PwV2 for original URL: https://leetcode.com/u/kumarvarun_09/
+2026-05-09 00:26:43.539 | PID:26352 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Starting AnalyticsSyncJob...
+2026-05-09 00:26:43.542 | PID:26352 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : No records to process
+2026-05-09 00:26:43.543 | PID:26352 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : AnalyticsSyncJob completed successfully in 4 ms
+2026-05-09 00:26:45.797 | PID:26352 | [SpringApplicationShutdownHook] | INFO  | o.s.boot.tomcat.GracefulShutdown.shutDownGracefully : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09 00:26:45.814 | PID:26352 | [tomcat-shutdown] | INFO  | o.s.boot.tomcat.GracefulShutdown.doShutdown : Graceful shutdown complete
+2026-05-09 00:26:45.863 | PID:26352 | [SpringApplicationShutdownHook] | INFO  | o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09 00:26:45.870 | PID:26352 | [SpringApplicationShutdownHook] | INFO  | com.zaxxer.hikari.HikariDataSource.close : HikariPool-1 - Shutdown initiated...
+2026-05-09 00:26:45.895 | PID:26352 | [SpringApplicationShutdownHook] | INFO  | com.zaxxer.hikari.HikariDataSource.close : HikariPool-1 - Shutdown completed.
+2026-05-09 00:26:55.256 | PID:19728 | [main] | INFO  | c.e.U.S.UrlShortenerApplication.logStarting : Starting UrlShortenerApplication using Java 24.0.1 with PID 19728 (C:\workspace\URL-Shortener\target\classes started by kumar in C:\workspace\URL-Shortener)
+2026-05-09 00:26:55.275 | PID:19728 | [main] | INFO  | c.e.U.S.UrlShortenerApplication.logStartupProfileInfo : No active profile set, falling back to 1 default profile: "default"
+2026-05-09 00:27:00.004 | PID:19728 | [main] | INFO  | o.s.d.r.c.RepositoryConfigurationDelegate.multipleStoresDetected : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-05-09 00:27:00.028 | PID:19728 | [main] | INFO  | o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09 00:27:00.759 | PID:19728 | [main] | INFO  | o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn : Finished Spring Data repository scanning in 666 ms. Found 1 JPA repository interface.
+2026-05-09 00:27:00.876 | PID:19728 | [main] | INFO  | o.s.d.r.c.RepositoryConfigurationDelegate.multipleStoresDetected : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-05-09 00:27:00.879 | PID:19728 | [main] | INFO  | o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-05-09 00:27:00.933 | PID:19728 | [main] | INFO  | o.s.d.r.c.RepositoryConfigurationExtensionSupport.isStrictRepositoryCandidate : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.URL.Shortener.repository.UrlRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-05-09 00:27:00.934 | PID:19728 | [main] | INFO  | o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn : Finished Spring Data repository scanning in 21 ms. Found 0 Redis repository interfaces.
+2026-05-09 00:27:03.386 | PID:19728 | [main] | INFO  | o.s.boot.tomcat.TomcatWebServer.initialize : Tomcat initialized with port 8080 (http)
+2026-05-09 00:27:03.429 | PID:19728 | [main] | INFO  | o.a.catalina.core.StandardService.log : Starting service [Tomcat]
+2026-05-09 00:27:03.429 | PID:19728 | [main] | INFO  | o.a.catalina.core.StandardEngine.log : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-05-09 00:27:03.663 | PID:19728 | [main] | INFO  | o.s.b.w.c.s.WebApplicationContextInitializer.prepareWebApplicationContext : Root WebApplicationContext: initialization completed in 8196 ms
+2026-05-09 00:27:04.379 | PID:19728 | [main] | INFO  | org.hibernate.orm.jpa.logPersistenceUnitInformation : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09 00:27:04.708 | PID:19728 | [main] | INFO  | org.hibernate.orm.core.logVersion : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-05-09 00:27:06.736 | PID:19728 | [main] | INFO  | o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09 00:27:06.865 | PID:19728 | [main] | INFO  | com.zaxxer.hikari.HikariDataSource.getConnection : HikariPool-1 - Starting...
+2026-05-09 00:27:07.388 | PID:19728 | [main] | INFO  | com.zaxxer.hikari.pool.HikariPool.checkFailFast : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3387ab0
+2026-05-09 00:27:07.393 | PID:19728 | [main] | INFO  | com.zaxxer.hikari.HikariDataSource.getConnection : HikariPool-1 - Start completed.
+2026-05-09 00:27:07.466 | PID:19728 | [main] | WARN  | org.hibernate.orm.deprecation.constructDialect : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09 00:27:07.550 | PID:19728 | [main] | INFO  | o.hibernate.orm.connections.pooling.logConnectionInfo : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/url_shortener]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.2
+	Default catalog/schema: url_shortener/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09 00:27:10.921 | PID:19728 | [main] | INFO  | org.hibernate.orm.core.initiateService : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09 00:27:11.103 | PID:19728 | [main] | INFO  | o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09 00:27:11.385 | PID:19728 | [main] | INFO  | o.s.d.j.r.q.QueryEnhancerFactories.<clinit> : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-09 00:27:13.266 | PID:19728 | [main] | WARN  | o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09 00:27:14.608 | PID:19728 | [main] | INFO  | o.s.boot.tomcat.TomcatWebServer.start : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09 00:27:14.649 | PID:19728 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Starting AnalyticsSyncJob...
+2026-05-09 00:27:14.649 | PID:19728 | [main] | INFO  | c.e.U.S.UrlShortenerApplication.logStarted : Started UrlShortenerApplication in 21.586 seconds (process running for 24.593)
+2026-05-09 00:27:15.885 | PID:19728 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : No records to process
+2026-05-09 00:27:15.886 | PID:19728 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : AnalyticsSyncJob completed successfully in 1237 ms
+2026-05-09 00:28:00.311 | PID:19728 | [http-nio-8080-exec-2] | INFO  | o.a.c.c.C.[Tomcat].[localhost].[/].log : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-09 00:28:00.312 | PID:19728 | [http-nio-8080-exec-2] | INFO  | o.s.web.servlet.DispatcherServlet.initServletBean : Initializing Servlet 'dispatcherServlet'
+2026-05-09 00:28:00.317 | PID:19728 | [http-nio-8080-exec-2] | INFO  | o.s.web.servlet.DispatcherServlet.initServletBean : Completed initialization in 5 ms
+2026-05-09 00:28:09.650 | PID:19728 | [http-nio-8080-exec-2] | INFO  | c.e.U.S.controller.UrlController.shortenUrl : Got request from IP: 0:0:0:0:0:0:0:1
+
+2026-05-09 00:28:21.055 | PID:19728 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Starting AnalyticsSyncJob...
+2026-05-09 00:28:53.331 | PID:19728 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : No records to process
+2026-05-09 00:28:53.333 | PID:19728 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : AnalyticsSyncJob completed successfully in 32278 ms
+2026-05-09 00:28:53.451 | PID:19728 | [SpringApplicationShutdownHook] | INFO  | o.s.boot.tomcat.GracefulShutdown.shutDownGracefully : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09 00:28:57.507 | PID:19728 | [http-nio-8080-exec-2] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : BASE62: OPvkMrhDVSRpgJ6X15wGIFTEybs48NuU2Qmi9YHtz0coCAaLKedljqZW37xnf , id: 1
+2026-05-09 00:28:57.508 | PID:19728 | [http-nio-8080-exec-2] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : New generated id: 387978023
+2026-05-09 00:28:57.511 | PID:19728 | [http-nio-8080-exec-2] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Inside loop, index is 28 , char is 8
+2026-05-09 00:28:57.512 | PID:19728 | [http-nio-8080-exec-2] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Inside loop, index is 8 , char is V
+2026-05-09 00:28:57.513 | PID:19728 | [http-nio-8080-exec-2] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Inside loop, index is 18 , char is w
+2026-05-09 00:28:57.515 | PID:19728 | [http-nio-8080-exec-2] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Inside loop, index is 1 , char is P
+2026-05-09 00:28:57.516 | PID:19728 | [http-nio-8080-exec-2] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Inside loop, index is 28 , char is 8
+2026-05-09 00:28:57.517 | PID:19728 | [http-nio-8080-exec-2] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Short code generated: 8VwP8O
+2026-05-09 00:28:58.258 | PID:19728 | [http-nio-8080-exec-2] | INFO  | c.e.URL.Shortener.service.UrlService.shortenUrl : Shortened URL: http://localhost:8080/url/O8PwV8 for original URL: https://leetcode.com/u/kumarvarun_09/
+2026-05-09 00:28:58.766 | PID:19728 | [tomcat-shutdown] | INFO  | o.s.boot.tomcat.GracefulShutdown.doShutdown : Graceful shutdown complete
+2026-05-09 00:28:58.839 | PID:19728 | [SpringApplicationShutdownHook] | INFO  | o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09 00:28:58.847 | PID:19728 | [SpringApplicationShutdownHook] | INFO  | com.zaxxer.hikari.HikariDataSource.close : HikariPool-1 - Shutdown initiated...
+2026-05-09 00:28:58.874 | PID:19728 | [SpringApplicationShutdownHook] | INFO  | com.zaxxer.hikari.HikariDataSource.close : HikariPool-1 - Shutdown completed.
+2026-05-09 00:29:37.299 | PID:20840 | [main] | INFO  | c.e.U.S.UrlShortenerApplication.logStarting : Starting UrlShortenerApplication using Java 24.0.1 with PID 20840 (C:\workspace\URL-Shortener\target\classes started by kumar in C:\workspace\URL-Shortener)
+2026-05-09 00:29:37.310 | PID:20840 | [main] | INFO  | c.e.U.S.UrlShortenerApplication.logStartupProfileInfo : No active profile set, falling back to 1 default profile: "default"
+2026-05-09 00:29:39.574 | PID:20840 | [main] | INFO  | o.s.d.r.c.RepositoryConfigurationDelegate.multipleStoresDetected : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-05-09 00:29:39.580 | PID:20840 | [main] | INFO  | o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09 00:29:39.933 | PID:20840 | [main] | INFO  | o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn : Finished Spring Data repository scanning in 323 ms. Found 1 JPA repository interface.
+2026-05-09 00:29:40.010 | PID:20840 | [main] | INFO  | o.s.d.r.c.RepositoryConfigurationDelegate.multipleStoresDetected : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-05-09 00:29:40.012 | PID:20840 | [main] | INFO  | o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-05-09 00:29:40.049 | PID:20840 | [main] | INFO  | o.s.d.r.c.RepositoryConfigurationExtensionSupport.isStrictRepositoryCandidate : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.URL.Shortener.repository.UrlRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-05-09 00:29:40.050 | PID:20840 | [main] | INFO  | o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn : Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+2026-05-09 00:29:41.392 | PID:20840 | [main] | INFO  | o.s.boot.tomcat.TomcatWebServer.initialize : Tomcat initialized with port 8080 (http)
+2026-05-09 00:29:41.429 | PID:20840 | [main] | INFO  | o.a.catalina.core.StandardService.log : Starting service [Tomcat]
+2026-05-09 00:29:41.430 | PID:20840 | [main] | INFO  | o.a.catalina.core.StandardEngine.log : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-05-09 00:29:41.581 | PID:20840 | [main] | INFO  | o.s.b.w.c.s.WebApplicationContextInitializer.prepareWebApplicationContext : Root WebApplicationContext: initialization completed in 4038 ms
+2026-05-09 00:29:41.976 | PID:20840 | [main] | INFO  | org.hibernate.orm.jpa.logPersistenceUnitInformation : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-09 00:29:42.102 | PID:20840 | [main] | INFO  | org.hibernate.orm.core.logVersion : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-05-09 00:29:43.889 | PID:20840 | [main] | INFO  | o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09 00:29:43.999 | PID:20840 | [main] | INFO  | com.zaxxer.hikari.HikariDataSource.getConnection : HikariPool-1 - Starting...
+2026-05-09 00:29:44.480 | PID:20840 | [main] | INFO  | com.zaxxer.hikari.pool.HikariPool.checkFailFast : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3cfab340
+2026-05-09 00:29:44.485 | PID:20840 | [main] | INFO  | com.zaxxer.hikari.HikariDataSource.getConnection : HikariPool-1 - Start completed.
+2026-05-09 00:29:44.560 | PID:20840 | [main] | WARN  | org.hibernate.orm.deprecation.constructDialect : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09 00:29:44.627 | PID:20840 | [main] | INFO  | o.hibernate.orm.connections.pooling.logConnectionInfo : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/url_shortener]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.2
+	Default catalog/schema: url_shortener/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-09 00:29:47.217 | PID:20840 | [main] | INFO  | org.hibernate.orm.core.initiateService : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09 00:29:47.418 | PID:20840 | [main] | INFO  | o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09 00:29:47.710 | PID:20840 | [main] | INFO  | o.s.d.j.r.q.QueryEnhancerFactories.<clinit> : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-09 00:29:49.539 | PID:20840 | [main] | WARN  | o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-09 00:29:50.500 | PID:20840 | [main] | INFO  | o.s.boot.tomcat.TomcatWebServer.start : Tomcat started on port 8080 (http) with context path '/'
+2026-05-09 00:29:50.532 | PID:20840 | [main] | INFO  | c.e.U.S.UrlShortenerApplication.logStarted : Started UrlShortenerApplication in 14.731 seconds (process running for 16.723)
+2026-05-09 00:29:50.533 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Starting AnalyticsSyncJob...
+2026-05-09 00:29:51.614 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : No records to process
+2026-05-09 00:29:51.615 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : AnalyticsSyncJob completed successfully in 1082 ms
+2026-05-09 00:30:11.558 | PID:20840 | [http-nio-8080-exec-2] | INFO  | o.a.c.c.C.[Tomcat].[localhost].[/].log : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-09 00:30:11.571 | PID:20840 | [http-nio-8080-exec-2] | INFO  | o.s.web.servlet.DispatcherServlet.initServletBean : Initializing Servlet 'dispatcherServlet'
+2026-05-09 00:30:11.581 | PID:20840 | [http-nio-8080-exec-2] | INFO  | o.s.web.servlet.DispatcherServlet.initServletBean : Completed initialization in 7 ms
+2026-05-09 00:30:18.235 | PID:20840 | [http-nio-8080-exec-2] | INFO  | c.e.U.S.controller.UrlController.shortenUrl : Got request from IP: 0:0:0:0:0:0:0:1
+
+2026-05-09 00:31:50.408 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Starting AnalyticsSyncJob...
+2026-05-09 00:31:50.413 | PID:20840 | [HikariPool-1:housekeeper] | WARN  | com.zaxxer.hikari.pool.HikariPool.run : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m32s990ms889µs100ns).
+2026-05-09 00:31:50.426 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : No records to process
+2026-05-09 00:31:50.428 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : AnalyticsSyncJob completed successfully in 20 ms
+2026-05-09 00:31:56.447 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Starting AnalyticsSyncJob...
+2026-05-09 00:31:56.459 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : No records to process
+2026-05-09 00:31:56.462 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : AnalyticsSyncJob completed successfully in 15 ms
+2026-05-09 00:32:17.995 | PID:20840 | [http-nio-8080-exec-2] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : BASE62: OPvkMrhDVSRpgJ6X15wGIFTEybs48NuU2Qmi9YHtz0coCAaLKedljqZW37xnf , id: 1
+2026-05-09 00:32:17.999 | PID:20840 | [http-nio-8080-exec-2] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : New generated id: 387978023
+2026-05-09 00:32:18.002 | PID:20840 | [http-nio-8080-exec-2] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Inside loop, index is 28 , char is 8
+2026-05-09 00:32:18.007 | PID:20840 | [http-nio-8080-exec-2] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Inside loop, index is 8 , char is V
+2026-05-09 00:32:18.009 | PID:20840 | [http-nio-8080-exec-2] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Inside loop, index is 18 , char is w
+2026-05-09 00:32:18.011 | PID:20840 | [http-nio-8080-exec-2] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Inside loop, index is 1 , char is P
+2026-05-09 00:32:18.013 | PID:20840 | [http-nio-8080-exec-2] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Inside loop, index is 28 , char is 8
+2026-05-09 00:32:18.016 | PID:20840 | [http-nio-8080-exec-2] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Short code generated: 8VwP8O
+2026-05-09 00:32:30.345 | PID:20840 | [http-nio-8080-exec-2] | INFO  | c.e.URL.Shortener.service.UrlService.shortenUrl : Shortened URL: http://localhost:8080/url/O8PwV8 for original URL: https://leetcode.com/u/kumarvarun_09/
+2026-05-09 00:32:50.612 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Starting AnalyticsSyncJob...
+2026-05-09 00:32:50.719 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : No records to process
+2026-05-09 00:32:50.720 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : AnalyticsSyncJob completed successfully in 108 ms
+2026-05-09 00:33:27.864 | PID:20840 | [http-nio-8080-exec-4] | INFO  | c.e.U.S.controller.UrlController.getOriginalUrl : Got request from IP: 0:0:0:0:0:0:0:1
+
+2026-05-09 00:33:44.088 | PID:20840 | [http-nio-8080-exec-4] | INFO  | c.e.U.Shortener.service.RedisService.get : key: short_url:O8PwV8, value: {"id":1,"originalUrl":"https://leetcode.com/u/kumarvarun_09/","shortCode":"O8PwV8","createdAt":"2026-05-09T00:32:07.9044292","expiryAt":null,"clickCount":0}
+2026-05-09 00:34:00.591 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Starting AnalyticsSyncJob...
+2026-05-09 00:34:02.016 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : No records to process
+2026-05-09 00:34:02.022 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : AnalyticsSyncJob completed successfully in 1431 ms
+2026-05-09 00:34:30.862 | PID:20840 | [http-nio-8080-exec-4] | INFO  | c.e.U.S.service.AnalyticsService.incrementClick : Incremented click count for shortCode O8PwV8
+2026-05-09 00:34:35.863 | PID:20840 | [http-nio-8080-exec-4] | INFO  | c.e.URL.Shortener.service.UrlService.getOriginalUrl : Data found in cache, shortCode: O8PwV8 , Original URL: https://leetcode.com/u/kumarvarun_09/
+2026-05-09 00:34:50.914 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Starting AnalyticsSyncJob...
+2026-05-09 00:34:59.958 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Redis key: click:O8PwV8 , value: 1
+2026-05-09 00:35:00.428 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : AnalyticsSyncJob completed successfully in 9514 ms
+2026-05-09 00:35:13.891 | PID:20840 | [http-nio-8080-exec-7] | INFO  | c.e.U.S.controller.UrlController.getOriginalUrl : Got request from IP: 0:0:0:0:0:0:0:1
+
+2026-05-09 00:35:13.912 | PID:20840 | [http-nio-8080-exec-7] | INFO  | c.e.U.Shortener.service.RedisService.get : key: short_url:O8PwV8, value: {"id":1,"originalUrl":"https://leetcode.com/u/kumarvarun_09/","shortCode":"O8PwV8","createdAt":"2026-05-09T00:32:07.9044292","expiryAt":null,"clickCount":0}
+2026-05-09 00:35:13.936 | PID:20840 | [http-nio-8080-exec-7] | INFO  | c.e.U.S.service.AnalyticsService.incrementClick : Incremented click count for shortCode O8PwV8
+2026-05-09 00:35:13.937 | PID:20840 | [http-nio-8080-exec-7] | INFO  | c.e.URL.Shortener.service.UrlService.getOriginalUrl : Data found in cache, shortCode: O8PwV8 , Original URL: https://leetcode.com/u/kumarvarun_09/
+2026-05-09 00:35:16.706 | PID:20840 | [http-nio-8080-exec-8] | INFO  | c.e.U.S.controller.UrlController.getOriginalUrl : Got request from IP: 0:0:0:0:0:0:0:1
+
+2026-05-09 00:35:16.712 | PID:20840 | [http-nio-8080-exec-8] | INFO  | c.e.U.Shortener.service.RedisService.get : key: short_url:O8PwV8, value: {"id":1,"originalUrl":"https://leetcode.com/u/kumarvarun_09/","shortCode":"O8PwV8","createdAt":"2026-05-09T00:32:07.9044292","expiryAt":null,"clickCount":0}
+2026-05-09 00:35:16.723 | PID:20840 | [http-nio-8080-exec-8] | INFO  | c.e.U.S.service.AnalyticsService.incrementClick : Incremented click count for shortCode O8PwV8
+2026-05-09 00:35:16.724 | PID:20840 | [http-nio-8080-exec-8] | INFO  | c.e.URL.Shortener.service.UrlService.getOriginalUrl : Data found in cache, shortCode: O8PwV8 , Original URL: https://leetcode.com/u/kumarvarun_09/
+2026-05-09 00:35:20.623 | PID:20840 | [http-nio-8080-exec-9] | INFO  | c.e.U.S.controller.UrlController.getOriginalUrl : Got request from IP: 0:0:0:0:0:0:0:1
+
+2026-05-09 00:35:20.633 | PID:20840 | [http-nio-8080-exec-9] | INFO  | c.e.U.Shortener.service.RedisService.get : key: short_url:O8PwV8, value: {"id":1,"originalUrl":"https://leetcode.com/u/kumarvarun_09/","shortCode":"O8PwV8","createdAt":"2026-05-09T00:32:07.9044292","expiryAt":null,"clickCount":0}
+2026-05-09 00:35:20.650 | PID:20840 | [http-nio-8080-exec-9] | INFO  | c.e.U.S.service.AnalyticsService.incrementClick : Incremented click count for shortCode O8PwV8
+2026-05-09 00:35:20.650 | PID:20840 | [http-nio-8080-exec-9] | INFO  | c.e.URL.Shortener.service.UrlService.getOriginalUrl : Data found in cache, shortCode: O8PwV8 , Original URL: https://leetcode.com/u/kumarvarun_09/
+2026-05-09 00:35:24.031 | PID:20840 | [http-nio-8080-exec-10] | INFO  | c.e.U.S.controller.UrlController.getOriginalUrl : Got request from IP: 0:0:0:0:0:0:0:1
+
+2026-05-09 00:35:24.037 | PID:20840 | [http-nio-8080-exec-10] | INFO  | c.e.U.Shortener.service.RedisService.get : key: short_url:O8PwV8, value: {"id":1,"originalUrl":"https://leetcode.com/u/kumarvarun_09/","shortCode":"O8PwV8","createdAt":"2026-05-09T00:32:07.9044292","expiryAt":null,"clickCount":0}
+2026-05-09 00:35:24.048 | PID:20840 | [http-nio-8080-exec-10] | INFO  | c.e.U.S.service.AnalyticsService.incrementClick : Incremented click count for shortCode O8PwV8
+2026-05-09 00:35:24.049 | PID:20840 | [http-nio-8080-exec-10] | INFO  | c.e.URL.Shortener.service.UrlService.getOriginalUrl : Data found in cache, shortCode: O8PwV8 , Original URL: https://leetcode.com/u/kumarvarun_09/
+2026-05-09 00:35:41.545 | PID:20840 | [http-nio-8080-exec-1] | INFO  | c.e.U.S.controller.UrlController.getOriginalUrl : Got request from IP: 0:0:0:0:0:0:0:1
+
+2026-05-09 00:35:51.297 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Starting AnalyticsSyncJob...
+2026-05-09 00:36:01.977 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Redis key: click:O8PwV8 , value: 4
+2026-05-09 00:36:14.881 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : AnalyticsSyncJob completed successfully in 23584 ms
+2026-05-09 00:36:22.650 | PID:20840 | [http-nio-8080-exec-1] | INFO  | c.e.U.Shortener.service.RedisService.get : key: short_url:O8PwV8, value: {"id":1,"originalUrl":"https://leetcode.com/u/kumarvarun_09/","shortCode":"O8PwV8","createdAt":"2026-05-09T00:32:07.9044292","expiryAt":null,"clickCount":0}
+2026-05-09 00:36:50.620 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Starting AnalyticsSyncJob...
+2026-05-09 00:36:50.637 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : No records to process
+2026-05-09 00:36:50.638 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : AnalyticsSyncJob completed successfully in 18 ms
+2026-05-09 00:36:53.971 | PID:20840 | [http-nio-8080-exec-1] | INFO  | c.e.U.S.service.AnalyticsService.incrementClick : Incremented click count for shortCode O8PwV8
+2026-05-09 00:36:57.825 | PID:20840 | [http-nio-8080-exec-1] | INFO  | c.e.URL.Shortener.service.UrlService.getOriginalUrl : Data found in cache, shortCode: O8PwV8 , Original URL: https://leetcode.com/u/kumarvarun_09/
+2026-05-09 00:37:39.188 | PID:20840 | [http-nio-8080-exec-5] | INFO  | c.e.U.S.controller.UrlController.getOriginalUrl : Got request from IP: 0:0:0:0:0:0:0:1
+
+2026-05-09 00:37:39.198 | PID:20840 | [http-nio-8080-exec-5] | INFO  | c.e.U.Shortener.service.RedisService.get : key: short_url:O8PwV8, value: {"id":1,"originalUrl":"https://leetcode.com/u/kumarvarun_09/","shortCode":"O8PwV8","createdAt":"2026-05-09T00:32:07.9044292","expiryAt":null,"clickCount":0}
+2026-05-09 00:37:39.210 | PID:20840 | [http-nio-8080-exec-5] | INFO  | c.e.U.S.service.AnalyticsService.incrementClick : Incremented click count for shortCode O8PwV8
+2026-05-09 00:37:39.212 | PID:20840 | [http-nio-8080-exec-5] | INFO  | c.e.URL.Shortener.service.UrlService.getOriginalUrl : Data found in cache, shortCode: O8PwV8 , Original URL: https://leetcode.com/u/kumarvarun_09/
+2026-05-09 00:37:43.839 | PID:20840 | [http-nio-8080-exec-4] | INFO  | c.e.U.S.controller.UrlController.getOriginalUrl : Got request from IP: 0:0:0:0:0:0:0:1
+
+2026-05-09 00:37:43.848 | PID:20840 | [http-nio-8080-exec-4] | INFO  | c.e.U.Shortener.service.RedisService.get : key: short_url:O8PwV8, value: {"id":1,"originalUrl":"https://leetcode.com/u/kumarvarun_09/","shortCode":"O8PwV8","createdAt":"2026-05-09T00:32:07.9044292","expiryAt":null,"clickCount":0}
+2026-05-09 00:37:43.861 | PID:20840 | [http-nio-8080-exec-4] | INFO  | c.e.U.S.service.AnalyticsService.incrementClick : Incremented click count for shortCode O8PwV8
+2026-05-09 00:37:43.862 | PID:20840 | [http-nio-8080-exec-4] | INFO  | c.e.URL.Shortener.service.UrlService.getOriginalUrl : Data found in cache, shortCode: O8PwV8 , Original URL: https://leetcode.com/u/kumarvarun_09/
+2026-05-09 00:37:46.702 | PID:20840 | [http-nio-8080-exec-6] | INFO  | c.e.U.S.controller.UrlController.getOriginalUrl : Got request from IP: 0:0:0:0:0:0:0:1
+
+2026-05-09 00:37:46.708 | PID:20840 | [http-nio-8080-exec-6] | INFO  | c.e.U.Shortener.service.RedisService.get : key: short_url:O8PwV8, value: {"id":1,"originalUrl":"https://leetcode.com/u/kumarvarun_09/","shortCode":"O8PwV8","createdAt":"2026-05-09T00:32:07.9044292","expiryAt":null,"clickCount":0}
+2026-05-09 00:37:46.715 | PID:20840 | [http-nio-8080-exec-6] | INFO  | c.e.U.S.service.AnalyticsService.incrementClick : Incremented click count for shortCode O8PwV8
+2026-05-09 00:37:46.717 | PID:20840 | [http-nio-8080-exec-6] | INFO  | c.e.URL.Shortener.service.UrlService.getOriginalUrl : Data found in cache, shortCode: O8PwV8 , Original URL: https://leetcode.com/u/kumarvarun_09/
+2026-05-09 00:37:49.376 | PID:20840 | [http-nio-8080-exec-7] | INFO  | c.e.U.S.controller.UrlController.getOriginalUrl : Got request from IP: 0:0:0:0:0:0:0:1
+
+2026-05-09 00:37:49.381 | PID:20840 | [http-nio-8080-exec-7] | INFO  | c.e.U.Shortener.service.RedisService.get : key: short_url:O8PwV8, value: {"id":1,"originalUrl":"https://leetcode.com/u/kumarvarun_09/","shortCode":"O8PwV8","createdAt":"2026-05-09T00:32:07.9044292","expiryAt":null,"clickCount":0}
+2026-05-09 00:37:49.395 | PID:20840 | [http-nio-8080-exec-7] | INFO  | c.e.U.S.service.AnalyticsService.incrementClick : Incremented click count for shortCode O8PwV8
+2026-05-09 00:37:49.395 | PID:20840 | [http-nio-8080-exec-7] | INFO  | c.e.URL.Shortener.service.UrlService.getOriginalUrl : Data found in cache, shortCode: O8PwV8 , Original URL: https://leetcode.com/u/kumarvarun_09/
+2026-05-09 00:37:50.523 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Starting AnalyticsSyncJob...
+2026-05-09 00:37:50.532 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Redis key: click:O8PwV8 , value: 5
+2026-05-09 00:37:50.560 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : AnalyticsSyncJob completed successfully in 37 ms
+2026-05-09 00:37:52.330 | PID:20840 | [http-nio-8080-exec-8] | INFO  | c.e.U.S.controller.UrlController.getOriginalUrl : Got request from IP: 0:0:0:0:0:0:0:1
+
+2026-05-09 00:37:52.336 | PID:20840 | [http-nio-8080-exec-8] | INFO  | c.e.U.Shortener.service.RedisService.get : key: short_url:O8PwV8, value: {"id":1,"originalUrl":"https://leetcode.com/u/kumarvarun_09/","shortCode":"O8PwV8","createdAt":"2026-05-09T00:32:07.9044292","expiryAt":null,"clickCount":0}
+2026-05-09 00:37:52.349 | PID:20840 | [http-nio-8080-exec-8] | INFO  | c.e.U.S.service.AnalyticsService.incrementClick : Incremented click count for shortCode O8PwV8
+2026-05-09 00:37:52.349 | PID:20840 | [http-nio-8080-exec-8] | INFO  | c.e.URL.Shortener.service.UrlService.getOriginalUrl : Data found in cache, shortCode: O8PwV8 , Original URL: https://leetcode.com/u/kumarvarun_09/
+2026-05-09 00:38:17.285 | PID:20840 | [http-nio-8080-exec-10] | INFO  | c.e.U.S.controller.UrlController.getOriginalUrl : Got request from IP: 0:0:0:0:0:0:0:1
+
+2026-05-09 00:38:50.529 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Starting AnalyticsSyncJob...
+2026-05-09 00:38:59.726 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Redis key: click:O8PwV8 , value: 1
+2026-05-09 00:39:09.520 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : AnalyticsSyncJob completed successfully in 18989 ms
+2026-05-09 00:39:31.068 | PID:20840 | [http-nio-8080-exec-1] | INFO  | c.e.U.S.controller.UrlController.getOriginalUrl : Got request from IP: 0:0:0:0:0:0:0:1
+
+2026-05-09 00:39:31.084 | PID:20840 | [http-nio-8080-exec-1] | INFO  | c.e.U.Shortener.service.RedisService.get : key: short_url:O8PwV8, value: {"id":1,"originalUrl":"https://leetcode.com/u/kumarvarun_09/","shortCode":"O8PwV8","createdAt":"2026-05-09T00:32:07.9044292","expiryAt":null,"clickCount":0}
+2026-05-09 00:39:31.101 | PID:20840 | [http-nio-8080-exec-1] | INFO  | c.e.U.S.service.AnalyticsService.incrementClick : Incremented click count for shortCode O8PwV8
+2026-05-09 00:39:31.104 | PID:20840 | [http-nio-8080-exec-1] | INFO  | c.e.URL.Shortener.service.UrlService.getOriginalUrl : Data found in cache, shortCode: O8PwV8 , Original URL: https://leetcode.com/u/kumarvarun_09/
+2026-05-09 00:39:34.694 | PID:20840 | [http-nio-8080-exec-3] | INFO  | c.e.U.S.controller.UrlController.getOriginalUrl : Got request from IP: 0:0:0:0:0:0:0:1
+
+2026-05-09 00:39:34.700 | PID:20840 | [http-nio-8080-exec-3] | INFO  | c.e.U.Shortener.service.RedisService.get : key: short_url:O8PwV8, value: {"id":1,"originalUrl":"https://leetcode.com/u/kumarvarun_09/","shortCode":"O8PwV8","createdAt":"2026-05-09T00:32:07.9044292","expiryAt":null,"clickCount":0}
+2026-05-09 00:39:34.708 | PID:20840 | [http-nio-8080-exec-3] | INFO  | c.e.U.S.service.AnalyticsService.incrementClick : Incremented click count for shortCode O8PwV8
+2026-05-09 00:39:34.708 | PID:20840 | [http-nio-8080-exec-3] | INFO  | c.e.URL.Shortener.service.UrlService.getOriginalUrl : Data found in cache, shortCode: O8PwV8 , Original URL: https://leetcode.com/u/kumarvarun_09/
+2026-05-09 00:39:46.652 | PID:20840 | [http-nio-8080-exec-4] | INFO  | c.e.U.S.controller.UrlController.shortenUrl : Got request from IP: 0:0:0:0:0:0:0:1
+
+2026-05-09 00:39:46.664 | PID:20840 | [http-nio-8080-exec-4] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : BASE62: OPvkMrhDVSRpgJ6X15wGIFTEybs48NuU2Qmi9YHtz0coCAaLKedljqZW37xnf , id: 2
+2026-05-09 00:39:46.667 | PID:20840 | [http-nio-8080-exec-4] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : New generated id: 387978024
+2026-05-09 00:39:46.667 | PID:20840 | [http-nio-8080-exec-4] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Inside loop, index is 29 , char is N
+2026-05-09 00:39:46.669 | PID:20840 | [http-nio-8080-exec-4] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Inside loop, index is 8 , char is V
+2026-05-09 00:39:46.673 | PID:20840 | [http-nio-8080-exec-4] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Inside loop, index is 18 , char is w
+2026-05-09 00:39:46.674 | PID:20840 | [http-nio-8080-exec-4] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Inside loop, index is 1 , char is P
+2026-05-09 00:39:46.674 | PID:20840 | [http-nio-8080-exec-4] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Inside loop, index is 28 , char is 8
+2026-05-09 00:39:46.676 | PID:20840 | [http-nio-8080-exec-4] | INFO  | c.e.U.Shortener.utils.Base62Encoder.encode : Short code generated: NVwP8O
+2026-05-09 00:39:46.696 | PID:20840 | [http-nio-8080-exec-4] | INFO  | c.e.URL.Shortener.service.UrlService.shortenUrl : Shortened URL: http://localhost:8080/url/O8PwVN for original URL: https://www.youtube.com/watch?v=WbU-qWAeLs4
+2026-05-09 00:39:50.522 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Starting AnalyticsSyncJob...
+2026-05-09 00:39:50.529 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Redis key: click:O8PwV8 , value: 2
+2026-05-09 00:39:50.555 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : AnalyticsSyncJob completed successfully in 33 ms
+2026-05-09 00:39:53.191 | PID:20840 | [http-nio-8080-exec-6] | INFO  | c.e.U.S.controller.UrlController.getOriginalUrl : Got request from IP: 0:0:0:0:0:0:0:1
+
+2026-05-09 00:39:53.199 | PID:20840 | [http-nio-8080-exec-6] | INFO  | c.e.U.Shortener.service.RedisService.get : key: short_url:O8PwVN, value: {"id":2,"originalUrl":"https://www.youtube.com/watch?v=WbU-qWAeLs4","shortCode":"O8PwVN","createdAt":"2026-05-09T00:39:46.6571808","expiryAt":null,"clickCount":0}
+2026-05-09 00:39:53.219 | PID:20840 | [http-nio-8080-exec-6] | INFO  | c.e.U.S.service.AnalyticsService.incrementClick : Incremented click count for shortCode O8PwVN
+2026-05-09 00:39:53.220 | PID:20840 | [http-nio-8080-exec-6] | INFO  | c.e.URL.Shortener.service.UrlService.getOriginalUrl : Data found in cache, shortCode: O8PwVN , Original URL: https://www.youtube.com/watch?v=WbU-qWAeLs4
+2026-05-09 00:39:56.879 | PID:20840 | [http-nio-8080-exec-7] | INFO  | c.e.U.S.controller.UrlController.getOriginalUrl : Got request from IP: 0:0:0:0:0:0:0:1
+
+2026-05-09 00:39:56.884 | PID:20840 | [http-nio-8080-exec-7] | INFO  | c.e.U.Shortener.service.RedisService.get : key: short_url:O8PwVN, value: {"id":2,"originalUrl":"https://www.youtube.com/watch?v=WbU-qWAeLs4","shortCode":"O8PwVN","createdAt":"2026-05-09T00:39:46.6571808","expiryAt":null,"clickCount":0}
+2026-05-09 00:39:56.892 | PID:20840 | [http-nio-8080-exec-7] | INFO  | c.e.U.S.service.AnalyticsService.incrementClick : Incremented click count for shortCode O8PwVN
+2026-05-09 00:39:56.892 | PID:20840 | [http-nio-8080-exec-7] | INFO  | c.e.URL.Shortener.service.UrlService.getOriginalUrl : Data found in cache, shortCode: O8PwVN , Original URL: https://www.youtube.com/watch?v=WbU-qWAeLs4
+2026-05-09 00:40:00.076 | PID:20840 | [http-nio-8080-exec-8] | INFO  | c.e.U.S.controller.UrlController.getOriginalUrl : Got request from IP: 0:0:0:0:0:0:0:1
+
+2026-05-09 00:40:50.523 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Starting AnalyticsSyncJob...
+2026-05-09 00:40:50.538 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Redis key: click:O8PwVN , value: 2
+2026-05-09 00:40:50.603 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : AnalyticsSyncJob completed successfully in 80 ms
+2026-05-09 00:42:18.596 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Starting AnalyticsSyncJob...
+2026-05-09 00:42:32.555 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : No records to process
+2026-05-09 00:42:33.205 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : AnalyticsSyncJob completed successfully in 16401 ms
+2026-05-09 00:42:55.520 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : Starting AnalyticsSyncJob...
+2026-05-09 00:42:55.543 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : No records to process
+2026-05-09 00:42:55.545 | PID:20840 | [scheduling-1] | INFO  | c.e.U.Shortener.job.AnalyticsSyncJob.syncClicksToDb : AnalyticsSyncJob completed successfully in 25 ms
+2026-05-09 00:42:56.142 | PID:20840 | [SpringApplicationShutdownHook] | INFO  | o.s.boot.tomcat.GracefulShutdown.shutDownGracefully : Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-09 00:42:56.256 | PID:20840 | [tomcat-shutdown] | INFO  | o.s.boot.tomcat.GracefulShutdown.doShutdown : Graceful shutdown complete
+2026-05-09 00:42:56.968 | PID:20840 | [SpringApplicationShutdownHook] | INFO  | o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09 00:42:57.079 | PID:20840 | [SpringApplicationShutdownHook] | INFO  | com.zaxxer.hikari.HikariDataSource.close : HikariPool-1 - Shutdown initiated...
+2026-05-09 00:42:57.169 | PID:20840 | [SpringApplicationShutdownHook] | INFO  | com.zaxxer.hikari.HikariDataSource.close : HikariPool-1 - Shutdown completed.
