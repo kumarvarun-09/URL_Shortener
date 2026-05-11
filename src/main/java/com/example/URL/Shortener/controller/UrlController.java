@@ -69,12 +69,5 @@ public class UrlController {
         return ResponseEntity.status(HttpStatus.FOUND)
                 .location(URI.create(originalUrl))
                 .build();
-        /*   🧠 Interview-Level Insight
-            If asked: “How do you implement redirect?”
-            You say: “I return HTTP 302 with Location header. Browser handles the redirection.”
-            Bonus:
-            302 → temporary redirect
-            301 → permanent redirect
-        */
     }
 }
