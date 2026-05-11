@@ -1,0 +1,64 @@
+spring:
+  application:
+    name: URL-Shortener
+
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE}
+
+server:
+  port: 8080
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} | PID:${PID} | [%thread] | %-5level | %logger{36}.%M : %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} | PID:${PID} | [%thread] | %-5level | %logger{36}.%M : %msg%n"
+
+  file:
+    name: logs/url-shortener.log
+
+  logback:
+    rollingpolicy:
+      max-file-size: 20MB
+      max-history: 10
+
+app:
+  null-cache-value: "NULL"
+
+  redis:
+    short-url-prefix: "short_url:"
+
+    url-ttl-seconds: 600
+    null-ttl-seconds: 300
+
+    url-ttl-minutes: 10
+    null-ttl-minutes: 5
+
+  analytics:
+    sync-interval-ms: 60000
+    click-prefix: "click:"
+    click-index-key: "click:keys"
+
+  rate-limit:
+    rate-limit-ip-key: "rate_limit_ip:"
+    max-requests: 5
+    window-seconds: 60
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info"
+
+  endpoint:
+    health:
+      show-details: always
+
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: "URL Shortener"
+    version: "1.0"
+    description: "Production-ready URL shortener"
