@@ -34,7 +34,7 @@ app:
     null-ttl-minutes: 5
 
   analytics:
-    sync-interval-ms: 60000
+    sync-interval-ms: ${APP_ANALYTICS_SYNC_INTERVAL_MS:300000}
     click-prefix: "click:"
     click-index-key: "click:keys"
 
