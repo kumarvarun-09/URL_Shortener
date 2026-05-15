@@ -1,125 +1,143 @@
 # URL Shortener
 
-A production-style URL shortener built using Java, Spring Boot, Redis, PostgreSQL, and Docker.
+A production-oriented URL Shortener backend built using Spring Boot, PostgreSQL, Redis, and Docker.
 
-This project focuses on backend engineering concepts such as caching, rate limiting, analytics tracking, scheduled jobs, containerized deployment, and externalized configuration.
+This project focuses on backend engineering concepts such as caching, rate limiting, scheduled jobs, environment-driven configuration, containerization, and scalable API design.
+
+The application is currently deployed on Railway using managed PostgreSQL and Redis services.
 
 ---
 
 # Features
 
-- URL shortening using Base62 encoding
-- URL redirection
-- Redis caching for fast lookups
-- PostgreSQL persistence
-- Database fallback in case Redis is unavailable
-- Click analytics tracking
-- Scheduled analytics synchronization job
-- IP-based rate limiting
-- Dockerized deployment
-- Swagger/OpenAPI documentation
-- Spring Boot Actuator monitoring
-- Externalized configuration using Spring profiles and environment variables
-- Structured logging
+* Generate short URLs
+* Redirect short URLs to original URLs
+* Redis-based caching for low-latency redirects
+* IP-based rate limiting
+* Click analytics tracking
+* Scheduled analytics synchronization job
+* Swagger/OpenAPI documentation
+* Dockerized setup
+* Production profile configuration
+* Health monitoring using Spring Boot Actuator
 
 ---
 
 # Tech Stack
 
 ## Backend
-- Java
-- Spring Boot
-- Spring Data JPA
-- Spring Data Redis
+
+* Java
+* Spring Boot
+* Spring Data JPA
 
 ## Database & Cache
-- PostgreSQL
-- Redis
 
-## DevOps & Deployment
-- Docker
-- Docker Compose
+* PostgreSQL
+* Redis
 
-## Build Tool
-- Maven
+## Documentation & Monitoring
+
+* Swagger / OpenAPI
+* Spring Boot Actuator
+
+## DevOps
+
+* Docker
+* Docker Compose
 
 ---
 
-# Architecture
+# Architecture Overview
 
 ```text
-                ┌─────────────────┐
-                │     Client      │
-                └────────┬────────┘
-                         │
-                         ▼
-                ┌─────────────────┐
-                │ Spring Boot App │
-                └───────┬─────────┘
-                        │
-         ┌──────────────┴──────────────┐
-         ▼                             ▼
- ┌───────────────┐             ┌────────────────┐
- │     Redis     │             │   PostgreSQL   │
- │   (Caching)   │             │  (Persistence) │
- └───────────────┘             └────────────────┘
+Client
+   ↓
+Spring Boot API
+   ↓
+Redis Cache
+   ↓
+PostgreSQL
+```
+
+![img.png](img.png)
+
+---
+
+# Redirect Flow
+
+```text
+1. Client requests short URL
+2. Application checks Redis cache
+3. On cache miss, data is fetched from PostgreSQL
+4. User is redirected to original URL
+5. Cache is updated for future requests
+```
+
+---
+
+# Example URLs
+
+## Original URL
+
+```text
+https://www.youtube.com/@TheComicCoder
+```
+
+## Generated Short URL
+
+```text
+https://vk.up.railway.app/url/O8PwV8
 ```
 
 ---
 
 # API Documentation
 
-Swagger UI:
+## Swagger UI
 
 ```text
-http://localhost:8090/swagger-ui.html
+https://vk.up.railway.app/swagger-ui/index.html
 ```
+
+![img_2.png](img_2.png)
 
 ---
 
-# Important Endpoints
+## Health Check
 
-## Create Short URL
-
-```http
-POST /url/shorten
+```text
+https://vk.up.railway.app/actuator/health
 ```
 
-Request Body:
-
-```json
-{
-  "url": "https://google.com"
-}
-```
-
-Response Example:
-
-```json
-{
-  "shortUrl": "http://localhost:8090/url/abc123"
-}
-```
+![img_1.png](img_1.png)
 
 ---
 
-## Redirect URL
+## Redirect Endpoint
 
-```http
+```text
 GET /url/{shortCode}
 ```
 
 Example:
 
 ```text
-GET /url/abc123
+GET /url/O8PwV8
 ```
-
-Redirects to the original URL.
 
 ---
 
-# Running the Project
+# Local Setup
+
+## Prerequisites
+
+* Java
+* Maven
+* Docker
+* Docker Compose
+
+---
 
 ## Clone Repository
 
@@ -130,117 +148,99 @@ cd URL_Shortener
 
 ---
 
-## Run Using Docker
+## Run Application
 
 ```bash
 docker compose up --build
 ```
 
-Application runs on:
+Application starts on:
 
 ```text
-http://localhost:8090
+http://localhost:8080
+```
+
+Swagger UI:
+
+```text
+http://localhost:8080/swagger-ui/index.html
+```
+
+Health Endpoint:
+
+```text
+http://localhost:8080/actuator/health
 ```
 
 ---
 
 # Environment Variables
 
+## Application
+
 ```env
 SPRING_PROFILES_ACTIVE=prod
+APP_BASE_URL=http://localhost:8080/url/
+APP_ANALYTICS_SYNC_INTERVAL_MS=300000
+```
 
+---
+
+## PostgreSQL
+
+```env
 SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/url_shortener
 SPRING_DATASOURCE_USERNAME=postgres
-SPRING_DATASOURCE_PASSWORD=your_password
+SPRING_DATASOURCE_PASSWORD=postgres
+```
 
+---
+
+## Redis
+
+```env
 SPRING_REDIS_HOST=redis
 SPRING_REDIS_PORT=6379
-
-APP_BASE_URL=http://localhost:8090/url/
+SPRING_REDIS_PASSWORD=
 ```
 
 ---
 
-# Monitoring
+# Deployment
 
-Actuator health endpoint:
+The application is currently deployed on Railway using:
 
-```text
-http://localhost:8090/actuator/health
-```
-
----
-
-# Logging
-
-- Console logging enabled
-- File-based logging enabled
-- Rolling log policy configured
+* Docker-based deployment
+* Managed PostgreSQL
+* Managed Redis
+* Environment-based production configuration
 
 ---
 
-# Docker Setup
+# Key Backend Engineering Concepts
 
-The application runs using three separate containers:
-
-- Spring Boot Application
-- PostgreSQL
-- Redis
-
-Docker Compose is used for orchestration and container networking.
-
----
-
-# Production Concepts Implemented
-
-- Redis caching
-- Cache TTL management
-- Null caching strategy
-- Database fallback strategy
-- Scheduled background jobs
-- Rate limiting using Redis
-- Externalized configuration
-- Docker networking
-- Persistent PostgreSQL volumes
-- Health monitoring using Actuator
-- API documentation using Swagger
+* Redis caching
+* Cache TTL management
+* Scheduled jobs
+* Rate limiting
+* Environment-based configuration
+* Reverse proxy handling
+* Docker containerization
+* Production profile management
+* Cloud-ready deployment setup
 
 ---
 
-# Challenges Faced During Development
+# Learning Objectives
 
-- Redis connectivity issues between containers
-- Docker container networking configuration
-- PostgreSQL volume compatibility issues
-- Environment variable configuration inside Docker containers
-- Container-to-container communication debugging
-- Spring profile management for Docker deployment
+This project was built to gain hands-on experience with:
 
----
-
-# Future Improvements
-
-- Flyway database migrations
-- Integration tests
-- CI/CD pipeline
-- Distributed locking
-- Custom short URLs
-- Link expiry support
-
----
-
-# Learning Outcomes
-
-This project helped in understanding:
-
-- Spring Boot backend development
-- Redis caching strategies
-- PostgreSQL integration
-- Docker and Docker Compose
-- Production-style configuration management
-- Backend debugging and deployment workflows
-- API documentation using Swagger
-- Basic observability using Spring Boot Actuator
+* scalable backend architecture
+* distributed caching
+* production-ready configuration
+* containerized deployment workflows
+* backend infrastructure concepts
+* cloud deployment debugging
 
 ---
 
