@@ -25,3 +25,6 @@ spring:
 
 app:
   base-url: ${APP_BASE_URL}
+
+server:
+  forward-headers-strategy: framework
