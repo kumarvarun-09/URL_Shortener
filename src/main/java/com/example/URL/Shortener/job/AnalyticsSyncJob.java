@@ -34,7 +34,7 @@ public class AnalyticsSyncJob {
             for (String shortCode : shortCodeSet) {
                 final String redisKey = applicationProperties.getAnalytics().getClickPrefix() + shortCode;
                 final String redisValue = redisTemplate.opsForValue().get(redisKey);
-                log.info("Redis key: {} , value: {}", redisKey, redisValue);
+                log.debug("Redis key: {} , value: {}", redisKey, redisValue);
                 if (redisValue == null) {
                     continue;
                 }
