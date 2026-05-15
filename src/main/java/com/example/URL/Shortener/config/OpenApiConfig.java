@@ -19,7 +19,7 @@ public class OpenApiConfig {
 
     @Bean
     public OpenAPI customOpenAPI() {
-        log.info("baseUrl");
+        log.info("baseUrl: {}", baseUrl);
         return new OpenAPI()
                 .servers(List.of(
                         new Server().url(baseUrl.replace("/url/", ""))
