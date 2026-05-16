@@ -42,7 +42,7 @@ public class UrlController {
         return ResponseEntity.ok()
                 .body(new ApiResponse(
                         true,
-                        "ShortUrlCreated",
+                        "Short URL Created",
                         shortCode,
                         LocalDateTime.now())
                 );
