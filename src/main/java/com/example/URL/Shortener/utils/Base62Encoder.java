@@ -28,7 +28,7 @@ public class Base62Encoder {
         while(shortCode.length() < 6){
             shortCode.append(BASE62.charAt(0));
         }
-        log.info("For id: {}, Short code generated: {}", id, shortCode);
+        log.debug("For id: {}, Short code generated: {}", id, shortCode);
         return shortCode.reverse().toString();
     }
 }
