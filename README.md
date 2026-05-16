@@ -87,7 +87,7 @@ https://www.youtube.com/@TheComicCoder
 ## Generated Short URL
 
 ```text
-https://vk.up.railway.app/url/O8PwV8
+https://vk.up.railway.app/url/mK3ZYR 
 ```
 
 ---
@@ -123,7 +123,7 @@ GET /url/{shortCode}
 Example:
 
 ```text
-GET /url/O8PwV8
+GET /url/mK3ZYR 
 ```
 
 ---
