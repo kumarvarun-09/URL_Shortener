@@ -2,7 +2,7 @@ package com.example.URL.Shortener.constants;
 
 public interface Constants {
 
-//    String BASE_URL = "http://localhost:8080/url/";
+    String BASE_URL = "http://localhost:8080/url/"
 //    String SHORT_URL_PREFIX = "short_url:";
 //    String CLICK_PREFIX = "click:";
 //    String CLICK_INDEX_KEY = "click:keys";
