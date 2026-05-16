@@ -60,7 +60,7 @@ Redis Cache
 PostgreSQL
 ```
 
-![img.png](img.png)
+![Project_Architecture.png](screenshots/Project_Architecture.png)
 
 ---
 
@@ -100,7 +100,7 @@ https://vk.up.railway.app/url/O8PwV8
 https://vk.up.railway.app/swagger-ui/index.html
 ```
 
-![img_2.png](img_2.png)
+![Swagger_UI.png](screenshots/Swagger_UI.png)
 
 ---
 
@@ -110,7 +110,7 @@ https://vk.up.railway.app/swagger-ui/index.html
 https://vk.up.railway.app/actuator/health
 ```
 
-![img_1.png](img_1.png)
+![Actuator_API_Postman.png](screenshots/Actuator_API_Postman.png)
 
 ---
 
