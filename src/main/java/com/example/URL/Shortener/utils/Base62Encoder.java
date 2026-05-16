@@ -6,24 +6,29 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class Base62Encoder {
-    private static final String BASE62 = "OPvkMrhDVSRpgJ6X15wGIFTEybs48NuU2Qmi9YHtz0coCAaLKedljqZW37xnf";
-    private static final Long randomStart = 387978022L;
-    public String encode(Long id) {
+    private static final String BASE62 = "m8oREvOshL7X04I3j2gctA1MawKpxVrkJHuqC9WfPFGNbUzdQDYBSZ6iZ5lyeE";
+    private static final long RANDOM_START = 387978022L;
+    private static final int BASE62_LENGTH = BASE62.length();
+
+    public String encode(long id) {
+        if (id < 0) {
+            throw new IllegalArgumentException("Id cannot be negative");
+        }
         log.debug("BASE62: {} , id: {}", BASE62, id);
-        long newId = randomStart + id;
+        long newId = RANDOM_START + id;
         log.debug("New generated id: {}", newId);
         StringBuilder shortCode = new StringBuilder();
         while(newId > 0){
-            int index = Math.toIntExact(newId % BASE62.length());
+            int index = Math.toIntExact(newId % BASE62_LENGTH);
             Character ch = BASE62.charAt(index);
             log.debug("Inside loop, index is {} , char is {}", index, ch);
             shortCode.append(ch);
-            newId /= BASE62.length();
+            newId /= BASE62_LENGTH;
         }
         while(shortCode.length() < 6){
             shortCode.append(BASE62.charAt(0));
         }
-        log.debug("Short code generated: {}", shortCode);
+        log.info("For id: {}, Short code generated: {}", id, shortCode);
         return shortCode.reverse().toString();
     }
 }
