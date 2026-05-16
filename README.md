@@ -1,10 +1,32 @@
 # URL Shortener
 
-A production-oriented URL Shortener backend built using Spring Boot, PostgreSQL, Redis, and Docker.
+A production-oriented URL Shortener backend built using Spring Boot, PostgreSQL, Redis, Docker, and GitHub Actions CI.
 
-This project focuses on backend engineering concepts such as caching, rate limiting, scheduled jobs, environment-driven configuration, containerization, and scalable API design.
+This project focuses on backend engineering concepts such as caching, rate limiting, scheduled jobs, environment-driven configuration, containerization, CI automation, and scalable API design.
 
 The application is currently deployed on Railway using managed PostgreSQL and Redis services.
+
+---
+
+# Live Demo
+
+## Application
+
+```text
+https://vk.up.railway.app
+```
+
+## Swagger UI
+
+```text
+https://vk.up.railway.app/swagger-ui/index.html
+```
+
+## Health Endpoint
+
+```text
+https://vk.up.railway.app/actuator/health
+```
 
 ---
 
@@ -20,6 +42,8 @@ The application is currently deployed on Railway using managed PostgreSQL and Re
 * Dockerized setup
 * Production profile configuration
 * Health monitoring using Spring Boot Actuator
+* GitHub Actions CI pipeline for automated build validation
+* Lightweight frontend interface for interacting with backend APIs
 
 ---
 
@@ -45,22 +69,23 @@ The application is currently deployed on Railway using managed PostgreSQL and Re
 
 * Docker
 * Docker Compose
+* GitHub Actions
 
 ---
 
 # Architecture Overview
 
 ```text
-Client
-   ↓
+Client / Browser
+        ↓
 Spring Boot API
-   ↓
+        ↓
 Redis Cache
-   ↓
+        ↓
 PostgreSQL
 ```
 
-![Project_Architecture.png](screenshots/Project_Architecture.png)
+![Project\_Architecture.png](screenshots/Project_Architecture.png)
 
 ---
 
@@ -87,8 +112,25 @@ https://www.youtube.com/@TheComicCoder
 ## Generated Short URL
 
 ```text
-https://vk.up.railway.app/url/mK3ZYR 
+https://vk.up.railway.app/url/mK3ZYR
 ```
+
+---
+
+# Lightweight Client Interface
+
+The project also includes a lightweight frontend interface for interacting with backend APIs.
+
+![Home\_UI.png](screenshots/Home_UI.png)
+
+Supported actions:
+
+* Enter original URL
+* Generate short URL
+* Copy generated short URL
+* Open generated short URL directly
+
+![Home_UI_Short_URL_generated.png](screenshots/Home_UI_Short_URL_generated.png)
 
 ---
 
@@ -100,7 +142,7 @@ https://vk.up.railway.app/url/mK3ZYR
 https://vk.up.railway.app/swagger-ui/index.html
 ```
 
-![Swagger_UI.png](screenshots/Swagger_UI.png)
+![Swagger\_UI.png](screenshots/Swagger_UI.png)
 
 ---
 
@@ -110,7 +152,7 @@ https://vk.up.railway.app/swagger-ui/index.html
 https://vk.up.railway.app/actuator/health
 ```
 
-![Actuator_API_Postman.png](screenshots/Actuator_API_Postman.png)
+![Actuator\_API\_Postman.png](screenshots/Actuator_API_Postman.png)
 
 ---
 
@@ -123,8 +165,22 @@ GET /url/{shortCode}
 Example:
 
 ```text
-GET /url/mK3ZYR 
+GET /url/mK3ZYR
 ```
+
+---
+
+# CI Pipeline
+
+The project includes a GitHub Actions CI pipeline that:
+
+![Github_Actions_CI.png](screenshots/Github_Actions_CI.png)
+
+* validates Maven builds on push and pull requests
+* caches Maven dependencies for faster builds
+* verifies Docker image builds during CI execution
+
+![Github_Actions_CI_build.png](screenshots/Github_Actions_CI_build.png)
 
 ---
 
@@ -224,8 +280,8 @@ The application is currently deployed on Railway using:
 * Scheduled jobs
 * Rate limiting
 * Environment-based configuration
-* Reverse proxy handling
 * Docker containerization
+* CI automation
 * Production profile management
 * Cloud-ready deployment setup
 
@@ -240,7 +296,7 @@ This project was built to gain hands-on experience with:
 * production-ready configuration
 * containerized deployment workflows
 * backend infrastructure concepts
-* cloud deployment debugging
+* CI/CD workflows
 
 ---
 
