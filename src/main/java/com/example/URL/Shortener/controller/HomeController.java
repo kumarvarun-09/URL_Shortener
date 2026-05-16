@@ -1,10 +1,12 @@
 package com.example.URL.Shortener.controller;
 
+import com.example.URL.Shortener.config.ApplicationProperties;
 import com.example.URL.Shortener.response.ApiResponse;
 import com.example.URL.Shortener.service.IRateLimiterService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.jspecify.annotations.NonNull;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +21,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class HomeController {
     private final IRateLimiterService rateLimiterService;
+    private final ApplicationProperties applicationProperties;
 
     @GetMapping("/")
     public ResponseEntity<?> home(HttpServletRequest httpServletRequest) {
@@ -35,6 +38,12 @@ public class HomeController {
                     );
         }
 
+        Map<String, Object> response = getStringObjectMap();
+        return ResponseEntity.ok(response);
+    }
+
+    private @NonNull Map<String, Object> getStringObjectMap() {
+        String baseUrl = applicationProperties.getBaseUrl().replace("/url/", "");
         Map<String, Object> response = new HashMap<>();
 
         response.put("service", "URL Shortener API");
@@ -42,11 +51,10 @@ public class HomeController {
         response.put("description", "Production-grade URL shortening service with caching and analytics");
 
         Map<String, String> links = new HashMap<>();
-        links.put("swagger", "/swagger-ui/index.html");
-        links.put("health", "/actuator/health");
+        links.put("swagger", baseUrl + "/swagger-ui/index.html");
+        links.put("health", baseUrl + "/actuator/health");
 
         response.put("links", links);
-
-        return ResponseEntity.ok(response);
+        return response;
     }
 }
