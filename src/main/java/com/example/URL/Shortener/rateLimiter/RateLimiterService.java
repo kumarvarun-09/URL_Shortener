@@ -1,4 +1,4 @@
-package com.example.URL.Shortener.service;
+package com.example.URL.Shortener.rateLimiter;
 
 import com.example.URL.Shortener.config.ApplicationProperties;
 import lombok.RequiredArgsConstructor;

@@ -1,10 +1,9 @@
 package com.example.URL.Shortener.controller;
 
+import com.example.URL.Shortener.rateLimiter.IRateLimiterService;
 import com.example.URL.Shortener.request.ShortenUrlRequest;
 import com.example.URL.Shortener.response.ApiResponse;
-import com.example.URL.Shortener.service.IRateLimiterService;
 import com.example.URL.Shortener.service.IUrlService;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,19 +23,7 @@ public class UrlController {
     private final IRateLimiterService rateLimiterService;
 
     @PostMapping("/shorten")
-    public ResponseEntity<?> shortenUrl(HttpServletRequest httpServletRequest, @Valid @RequestBody ShortenUrlRequest request) {
-        final String ip = httpServletRequest.getRemoteAddr();
-        log.info("""
-                Got request from IP: {}
-                """, ip);
-        if (!rateLimiterService.isAllowed(ip)) {
-            return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS)
-                    .body(new ApiResponse(
-                            false,
-                            "Too many requests",
-                            null, LocalDateTime.now())
-                    );
-        }
+    public ResponseEntity<?> shortenUrl(@Valid @RequestBody ShortenUrlRequest request) {
         String originalUrl = request.getUrl().trim();
         String shortCode = urlService.shortenUrl(originalUrl);
         return ResponseEntity.ok()
@@ -49,19 +36,7 @@ public class UrlController {
     }
 
     @GetMapping("/{shortCode}")
-    public ResponseEntity<?> getOriginalUrl(HttpServletRequest httpServletRequest, @PathVariable(name = "shortCode") String shortCode) {
-        final String ip = httpServletRequest.getRemoteAddr();
-        log.info("""
-                Got request from IP: {}
-                """, ip);
-        if (!rateLimiterService.isAllowed(ip)) {
-            return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS)
-                    .body(new ApiResponse(
-                            false,
-                            "Too many requests",
-                            null, LocalDateTime.now())
-                    );
-        }
+    public ResponseEntity<?> getOriginalUrl(@PathVariable(name = "shortCode") String shortCode) {
         shortCode = shortCode.trim();
         String originalUrl = urlService.getOriginalUrl(shortCode);
 //            return ResponseEntity.ok()
