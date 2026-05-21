@@ -1,4 +1,4 @@
-package com.example.URL.Shortener.service;
+package com.example.URL.Shortener.rateLimiter;
 
 public interface IRateLimiterService {
  boolean isAllowed(String key);
